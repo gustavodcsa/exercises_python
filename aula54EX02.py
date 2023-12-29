@@ -9,23 +9,24 @@ erros de indeices inecistntes na lista.
 import os 
 
 lista_compras = []
+print('Bem vindo a sua lista de compras!')
 while True:
- 
+
     print("\nInforme o que deseja fazer:")
-    selecao = input("[I]nserir, [A]pagar, [L]istar: ").lower()
-#Inclusão
+    selecao = input("[I]nserir, [A]pagar, [L]istar, [S]air: ").lower().strip()
+#Inclusão de intem
     if selecao == 'i':
         os.system('cls')
-        item_inserido = input('Informe o intem a ser inserido: ').title()
+        item_inserido = input('Informe o intem a ser inserido: ').title().strip()
         if item_inserido in lista_compras:
             print('Item já esta na lista!')
             continue
         else:
             lista_compras.append(item_inserido)
             print(f'O item "{item_inserido}" foi inserido com sucesso!')
-#Exclusão
+#Exclusão de item
     elif selecao == 'a':
-        item_excluido = input('Infome o intem ou indece que deseja apagar: ').title()
+        item_excluido = input('Infome o intem ou indece que deseja apagar: ').title().strip()
         if item_excluido.isdigit():
             item_excluido = int(item_excluido)
             try:
@@ -49,7 +50,7 @@ while True:
                         lista_compras.pop(i)
                         os.system('cls')
                         print(f'O item "{item_excluido}" foi excluido com sucesso!')
-#Exibição
+#Exibir lista de compras
     elif selecao == 'l':
         os.system('cls')
         if len(lista_compras) == 0:
@@ -58,6 +59,9 @@ while True:
             print('Lista de compras: \n')
             for i, n in enumerate(lista_compras):
                 print(i, n)
+#Sair da lista de compras
+    elif selecao == 's':
+        break
 #Invalido                
     else:
         os.system('cls')
