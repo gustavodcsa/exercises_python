@@ -13,13 +13,13 @@ print(multiplicação)
 
 def even_or_odd(x):
     if x%2 == 0:
-        return print(f'{x} is Even')
+        return f'{x} is Even'
     else:
-        return print(f'{x} is Odd')
+        return f'{x} is Odd'
     
 value_x = input('Enter an integer value: ')
 try:
     value_x = int(value_x)
-    even_or_odd(value_x)
+    print(even_or_odd(value_x))
 except ValueError:
     print('Value entered is not integer!')
