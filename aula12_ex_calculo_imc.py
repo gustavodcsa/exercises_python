@@ -1,3 +1,4 @@
+# Exercico de calculo de IMC
 nome = "Gustavo da Costa Santos"
 altura = 1.74
 peso = 72.8

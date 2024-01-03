@@ -1,3 +1,4 @@
+# Exercico usando operadores
 nome = 'Gustavo' #str
 sobrenome = 'Santos' #str
 idade = 26 #int

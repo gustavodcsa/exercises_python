@@ -1,3 +1,4 @@
+# Exercicio de comparação de operadores com if
 import sys
 
 primeiro_valor = input('Digite um valor: ')
