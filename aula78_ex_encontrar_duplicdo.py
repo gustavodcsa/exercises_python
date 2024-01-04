@@ -26,40 +26,21 @@ lista_de_listas_de_inteiros = [
     [10, 9, 8, 7, 6, 5, 4, 3, 2, 1],
 ]
 
-def listas(lista):
-    def numero_lista(numero):
-        return lista[numero]
-    return numero_lista
-
-lista = listas(lista_de_listas_de_inteiros)
-lista_verificacao = []
-
-duplicado = False
-valor_duplicado = None
-indice_duplicado = None
-
-for indice, lista in enumerate(lista_de_listas_de_inteiros):
-    lista_numero = lista
-
-    for indice_valor, valor_numero in enumerate(lista):
-        if duplicado == False:
-            if valor_numero in lista_verificacao:
-                duplicado = True
-                valor_duplicado = valor_numero 
-                indice_duplicado = indice_valor
-            else:
-                indice_duplicado = -1
-        lista_verificacao.append(valor_numero)
-    
-    if duplicado:
-        print(f'Lista {indice+1}) {lista_numero} -> Possui valor {valor_duplicado} duplicado no indece {indice_duplicado}\n')
+def first_duplicate(split_list):
+    value_return = -1
+    index_return = None
+    set_check = set()
+    for index_value, value_list in enumerate(split_list):
+        if value_list in set_check:
+            value_return = value_list
+            index_return = index_value
+            break
+        set_check.add(value_list)
+    if value_return != -1:
+        return f'O valor {value_return} esta duplicado no indice {index_return}'
     else:
-        print(f'Lista {indice+1}) {lista_numero} -> Não possui valor duplicado {indice_duplicado}\n')
-    
-    lista_verificacao = []
-    duplicado = False
-    valor_duplicado = None
-    indice_duplicado = None
+        return f'Não possui valor duplicado {value_return}'
 
 
-        
+for index, list in enumerate(lista_de_listas_de_inteiros):
+    print(f'{index+1}) {list} -> {first_duplicate(list)}\n')
