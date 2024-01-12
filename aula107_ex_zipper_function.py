@@ -5,26 +5,13 @@
 
 list_citys = ['Salvador', 'Ubatuba', 'Belo Horizonte']
 list_states = ['BA', 'SP', 'MG', 'RJ']
-list_complete = []
-# while True:
-#     if len(list_states) < len(list_citys):
-#         for index_state, states in enumerate(list_states):
-#             for index_city, citys in enumerate(list_citys):
-#                 list_complet += (citys, states)
-def verification_tuple_in_list(*args,**kwargs):
-    def func_tuples(city,state):
-        if city not in zipper(args) and state not in zipper(args):
-            return func_tuples
 
-@verification_tuple_in_list
-def zipper(city,satate):
-    list_complete += (city,satate)
-    return zipper
+def zipper(list_1, list_2):
+    interval = min(len(list_1),len(list_2))
+    return [(list_1[i],list_2[i]) for i in range(interval)]
 
-zipper_list = zipper()
-# for index_state, states in enumerate(list_states):
-#     for index_city, citys in enumerate(list_citys):
-#         if states not in list_complete and citys not in list_complete:
-#             list_complete += (citys,states)
+print(zipper(list_citys,list_states))
 
-print(list_complete)
+from itertools import zip_longest
+print(list(zip(list_citys,list_states)))
+print(list(zip_longest(list_citys,list_states)))
