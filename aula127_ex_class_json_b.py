@@ -12,13 +12,11 @@ class Time:
         for dado in dados_class.keys():
             @property
             def dado(self):
-                if self.dado:
-                    return self.dado
+                return self.dado
 
             @dado.setter
             def dado(self, valor):
-                if self.dado in kwargs:
-                    self.dado = valor
+                self.dado = valor
 
 
 palmeiras = Time(nome = 'Palmeiras', estado = 'São Paulo', estadio = 'Alians Park', torcida = '5 milhões', cores = ['Verde', 'Branco'])
